@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ali Çağdaş Çolak · Lead Mobile Developer</title>
+<meta name="description" content="Ali Çağdaş Çolak — Lead Mobile Application Developer in Istanbul with 8+ years building high-scale Android & mobile products like TikTak, the FIFA World Cup 2022 fan app and My Ford Trucks.">
+<meta property="og:title" content="Ali Çağdaş Çolak · Lead Mobile Developer">
+<meta property="og:description" content="Lead Mobile Application Developer · Kotlin, Jetpack Compose, KMP, Clean Architecture. 8+ years shipping high-scale mobile products.">
+<meta property="og:image" content="https://cacagdas.github.io/assets/profile.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0d12">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2310b981'/><text x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='white'>AÇ</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --bg-elev: #ffffff;
+    --bg-soft: #f2f2ef;
+    --text: #16181d;
+    --text-2: #4b5160;
+    --text-3: #7b8190;
+    --line: #e4e4df;
+    --accent: #059669;
+    --accent-2: #0ea5e9;
+    --accent-soft: rgba(5,150,105,.09);
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+    --radius: 16px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0d12; --bg-elev: #12151c; --bg-soft: #171b24;
+      --text: #eceef3; --text-2: #a9afbd; --text-3: #737a8a;
+      --line: #232835; --accent: #34d399; --accent-2: #38bdf8;
+      --accent-soft: rgba(52,211,153,.10);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0d12; --bg-elev: #12151c; --bg-soft: #171b24;
+    --text: #eceef3; --text-2: #a9afbd; --text-3: #737a8a;
+    --line: #232835; --accent: #34d399; --accent-2: #38bdf8;
+    --accent-soft: rgba(52,211,153,.10);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+    transition: background .25s, color .25s;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+  /* Nav */
+  nav.top {
+    position: sticky; top: 0; z-index: 20;
+    backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom: 1px solid transparent; transition: border-color .2s;
+  }
+  nav.top.scrolled { border-bottom-color: var(--line); }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a { font-size: 14px; color: var(--text-2); padding: 8px 12px; border-radius: 8px; transition: color .15s, background .15s; }
+  .nav-links a:hover { color: var(--text); background: var(--bg-soft); }
+  .icon-btn {
+    width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg-elev); color: var(--text-2); display: inline-grid; place-items: center; cursor: pointer;
+    transition: color .15s, border-color .15s;
+  }
+  .icon-btn:hover { color: var(--text); border-color: var(--text-3); }
+  .icon-btn svg { width: 18px; height: 18px; }
+
+  /* Hero */
+  header.hero { padding: 88px 0 72px; position: relative; overflow: hidden; }
+  header.hero::before {
+    content: ""; position: absolute; inset: -200px -10% auto auto; width: 620px; height: 620px;
+    background: radial-gradient(closest-side, var(--accent-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; position: relative; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--accent);
+    background: var(--accent-soft); padding: 6px 12px; border-radius: 999px; font-weight: 500;
+  }
+  .eyebrow .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent)} 70%{box-shadow:0 0 0 8px transparent} 100%{box-shadow:0 0 0 0 transparent} }
+  h1 { font-size: clamp(40px, 6.4vw, 68px); line-height: 1.04; letter-spacing: -.035em; margin: 22px 0 18px; font-weight: 800; }
+  h1 .grad { background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: clamp(17px, 2vw, 20px); color: var(--text-2); max-width: 620px; margin: 0 0 32px; }
+  .lede strong { color: var(--text); font-weight: 600; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px; padding: 12px 18px; border-radius: 12px;
+    font-weight: 600; font-size: 15px; border: 1px solid var(--line); background: var(--bg-elev);
+    transition: transform .15s, border-color .15s, background .15s;
+  }
+  .btn:hover { transform: translateY(-1px); border-color: var(--text-3); }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .btn.primary:hover { background: color-mix(in srgb, var(--text) 88%, var(--accent)); }
+  .btn svg { width: 18px; height: 18px; }
+  .avatar {
+    width: 220px; height: 220px; border-radius: 28px; position: relative;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2)); padding: 3px;
+    box-shadow: var(--shadow); transform: rotate(3deg);
+  }
+  .avatar img, .avatar .initials {
+    width: 100%; height: 100%; border-radius: 25px; object-fit: cover; display: block; background: var(--bg-elev);
+  }
+  .avatar .initials { display: grid; place-items: center; font-size: 64px; font-weight: 800; letter-spacing: -.04em; color: var(--accent); }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; color: var(--text-3); font-size: 14px; }
+  .meta-row span { display: inline-flex; align-items: center; gap: 6px; }
+  .meta-row svg { width: 16px; height: 16px; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .stat { background: var(--bg-elev); padding: 24px 22px; }
+  .stat b { display: block; font-size: 32px; letter-spacing: -.03em; font-weight: 800; line-height: 1.1; }
+  .stat span { color: var(--text-3); font-size: 14px; }
+
+  /* Sections */
+  section { padding: 88px 0 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; }
+  .sec-head .num { color: var(--accent); font-size: 14px; }
+  .sec-head h2 { margin: 0; font-size: clamp(26px, 3.4vw, 34px); letter-spacing: -.025em; font-weight: 750; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line); transform: translateY(-6px); }
+
+  .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
+  .about-grid p { margin: 0 0 16px; color: var(--text-2); font-size: 17px; }
+  .about-grid p strong { color: var(--text); font-weight: 600; }
+  .card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .focus-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .focus-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--text-2); }
+  .focus-list svg { flex: none; width: 20px; height: 20px; color: var(--accent); margin-top: 2px; }
+  .focus-list b { color: var(--text); font-weight: 600; display: block; }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .project {
+    position: relative; background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px; transition: transform .2s, border-color .2s, box-shadow .2s; overflow: hidden;
+  }
+  .project:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: var(--shadow); }
+  .project.featured { grid-column: span 2; display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: center; }
+  .project .tag { font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: .08em; }
+  .project h3 { margin: 6px 0 10px; font-size: 22px; letter-spacing: -.02em; }
+  .project p { margin: 0 0 16px; color: var(--text-2); font-size: 15px; }
+  .project .badge { position: absolute; top: 22px; right: 22px; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 12.5px; padding: 4px 10px; border-radius: 8px; background: var(--bg-soft); color: var(--text-2); border: 1px solid var(--line); }
+  .big-metric { text-align: center; padding: 28px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-soft), color-mix(in srgb, var(--accent-2) 10%, transparent)); }
+  .big-metric b { display: block; font-size: 56px; font-weight: 800; letter-spacing: -.04em; line-height: 1; background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .big-metric span { color: var(--text-2); font-size: 14px; }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .job { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 28px 0; border-top: 1px solid var(--line); }
+  .job:first-child { border-top: 0; padding-top: 0; }
+  .job .when { color: var(--text-3); font-size: 13.5px; padding-top: 4px; }
+  .job .when .loc { display: block; margin-top: 4px; }
+  .job h3 { margin: 0; font-size: 19px; letter-spacing: -.015em; }
+  .job .company { color: var(--accent); font-weight: 600; font-size: 15px; }
+  .job ul { margin: 12px 0 14px; padding-left: 18px; color: var(--text-2); }
+  .job li { margin-bottom: 6px; }
+  .job li::marker { color: var(--text-3); }
+  .job .promo { display: inline-block; margin-left: 8px; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 2px 9px; border-radius: 999px; vertical-align: 2px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .skills h4 { margin: 0 0 14px; font-size: 14px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; display: flex; align-items: center; gap: 8px; }
+  .skills h4 svg { width: 18px; height: 18px; color: var(--accent); }
+
+  /* Edu */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .edu-item + .edu-item { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .edu-item h3 { margin: 0; font-size: 17px; }
+  .edu-item .sub { color: var(--text-2); font-size: 15px; }
+  .edu-item .yr { color: var(--text-3); font-size: 13px; }
+  .edu-item ul { margin: 8px 0 0; padding-left: 18px; color: var(--text-2); font-size: 14.5px; }
+  .cert-list { list-style: none; margin: 0; padding: 0; }
+  .cert-list li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+  .cert-list li:last-child { border-bottom: 0; }
+  .cert-list .src { color: var(--text-3); font-size: 13px; white-space: nowrap; }
+  .langs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .lang { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-elev); font-size: 14px; }
+  .lang .bar { width: 56px; height: 5px; border-radius: 4px; background: var(--bg-soft); overflow: hidden; }
+  .lang .bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+  .lang small { color: var(--text-3); }
+
+  /* Contact */
+  .contact { margin: 96px 0 0; padding: 56px; border-radius: 24px; background: var(--text); color: var(--bg); position: relative; overflow: hidden; }
+  .contact::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 45%, transparent), transparent); }
+  .contact h2 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 40px); letter-spacing: -.03em; position: relative; z-index: 1; }
+  .contact p { margin: 0 0 28px; opacity: .75; max-width: 520px; position: relative; z-index: 1; }
+  .contact .cta { position: relative; z-index: 1; }
+  .contact .btn { background: transparent; color: var(--bg); border-color: color-mix(in srgb, var(--bg) 25%, transparent); }
+  .contact .btn:hover { border-color: var(--bg); }
+  .contact .btn.primary { background: var(--bg); color: var(--text); border-color: var(--bg); }
+
+  footer { padding: 40px 0 48px; color: var(--text-3); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer .socials { display: flex; gap: 8px; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .nav-links a { display: none; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .avatar { width: 128px; height: 128px; border-radius: 22px; order: -1; }
+    .avatar img, .avatar .initials { border-radius: 19px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .two-col, .skills { grid-template-columns: 1fr; }
+    .projects { grid-template-columns: 1fr; }
+    .project.featured { grid-column: auto; grid-template-columns: 1fr; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .contact { padding: 36px 24px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    header.hero { padding: 48px 0 48px; }
+    section { padding-top: 64px; }
+    .stat { padding: 18px 16px; }
+    .stat b { font-size: 26px; }
+    .cert-list li { flex-direction: column; gap: 2px; }
+    .btn { padding: 11px 15px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/></g></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></g></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</svg>
+
+<nav class="top" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span>Ali Çağdaş Çolak</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle color theme"><svg><use href="#i-moon"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="pulse"></span>Lead Mobile Application Developer · Vektör Teknoloji</span>
+      <h1>Building mobile products<br>for <span class="grad">millions</span> of users.</h1>
+      <p class="lede">I'm <strong>Ali Çağdaş Çolak</strong>, a mobile engineering lead based in Istanbul with <strong>8+ years</strong> of experience shipping high-scale Android apps and leading teams — from TikTak's mobility platform to the <strong>FIFA World Cup 2022</strong> fan app.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/alicagdascolak" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/cacagdas" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>GitHub</a>
+        <a class="btn" href="mailto:alicagdascolak@gmail.com"><svg><use href="#i-mail"/></svg>Email me</a>
+      </div>
+      <div class="meta-row">
+        <span><svg><use href="#i-pin"/></svg>Istanbul, Türkiye</span>
+        <span><svg><use href="#i-cap"/></svg>M.Sc. Engineering Management · Galatasaray University</span>
+      </div>
+    </div>
+    <div class="avatar">
+      <img src="assets/profile.jpg" alt="Ali Çağdaş Çolak" width="220" height="220"
+           onerror="this.outerHTML='<div class=&quot;initials&quot;>AÇ</div>'">
+    </div>
+  </div>
+</header>
+
+<div class="wrap reveal">
+  <div class="stats">
+    <div class="stat"><b>8+</b><span>years in mobile</span></div>
+    <div class="stat"><b>2M+</b><span>active users on TikTak</span></div>
+    <div class="stat"><b>5</b><span>companies &amp; flagship products</span></div>
+    <div class="stat"><b>2022</b><span>FIFA World Cup fan app</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="about" class="reveal">
+    <div class="sec-head"><span class="num mono">01</span><h2>About me</h2><span class="rule"></span></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a <strong>Lead Mobile Application Developer</strong> and a Master's student in <strong>Engineering Management</strong>. Over the past 8+ years I've built and scaled mobile products used by millions — and led the teams behind them.</p>
+        <p>My focus is on aligning <strong>technical strategy with business goals</strong>: setting a clear architectural direction, keeping codebases healthy as they grow, and helping engineers do their best work.</p>
+        <p>Today I lead the core mobile engineering team for <strong>TikTak</strong>, one of Türkiye's leading car-sharing platforms, while staying hands-on with critical Android features.</p>
+      </div>
+      <div class="card">
+        <ul class="focus-list">
+          <li><svg><use href="#i-check"/></svg><div><b>Modern mobile architecture</b>Clean Architecture, modularization, KMP &amp; Jetpack Compose</div></li>
+          <li><svg><use href="#i-check"/></svg><div><b>Technical leadership</b>Roadmaps, code reviews, mentoring and engineering standards</div></li>
+          <li><svg><use href="#i-check"/></svg><div><b>End-to-end mobility systems</b>High-concurrency, real-world products at scale</div></li>
+          <li><svg><use href="#i-check"/></svg><div><b>Cross-functional delivery</b>Close work with product, design and backend teams</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="reveal">
+    <div class="sec-head"><span class="num mono">02</span><h2>Selected work</h2><span class="rule"></span></div>
+    <div class="projects">
+      <article class="project featured">
+        <div>
+          <span class="tag mono">Mobility · Car sharing</span>
+          <h3>TikTak</h3>
+          <p>Leading the core mobile engineering team for a high-volume car-sharing platform. Drove Clean Architecture and modularization across legacy and modern codebases to improve maintainability and team velocity, and balanced UX improvements with technical-debt reduction for high-concurrency mobility services.</p>
+          <div class="chips"><span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">Clean Architecture</span><span class="chip">Hilt</span><span class="chip">Flow</span></div>
+        </div>
+        <div class="big-metric"><b>2M+</b><span>active users</span></div>
+      </article>
+
+      <article class="project">
+        <span class="badge">FIFA World Cup 2022</span>
+        <span class="tag mono">Sports · Fan engagement</span>
+        <h3>Jamaheer</h3>
+        <p>The fan app for the FIFA World Cup Qatar 2022, built with the Qatar Aspire Zone team on top of the Intouch platform with football-content SDK integration.</p>
+        <div class="chips"><span class="chip">Kotlin</span><span class="chip">MVVM</span><span class="chip">SDK integration</span></div>
+      </article>
+
+      <article class="project">
+        <span class="tag mono">Social · Community</span>
+        <h3>Intouch</h3>
+        <p>A multi-module, white-label community engagement app shipped on Google Play for multiple clients — Intouch Engagement, OBSS Social, Jamaheer and more — with posting, messaging and client-specific modules.</p>
+        <div class="chips"><span class="chip">Multi-module</span><span class="chip">Clean Architecture</span><span class="chip">Hilt</span><span class="chip">LiveData</span></div>
+      </article>
+
+      <article class="project">
+        <span class="tag mono">Automotive · Connected vehicles</span>
+        <h3>My Ford Trucks</h3>
+        <p>Vehicle info tracking and remote control app for Ford Trucks customers across Europe, available on Google Play.</p>
+        <div class="chips"><span class="chip">Kotlin</span><span class="chip">MVVM</span><span class="chip">Dagger</span></div>
+      </article>
+
+      <article class="project">
+        <span class="tag mono">Logistics · Fleet management</span>
+        <h3>Postal Fleet Management</h3>
+        <p>Android fleet-management app with route optimization, job listing and driving-behavior analysis — built with Ford Otosan and field-tested with Turkish postal service fleets.</p>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Google Maps</span><span class="chip">Route optimization</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="sec-head"><span class="num mono">03</span><h2>Experience</h2><span class="rule"></span></div>
+    <div class="timeline">
+      <div class="job">
+        <div class="when mono">04/2023 — Present<span class="loc">Istanbul</span></div>
+        <div>
+          <h3>Lead Mobile Application Developer <span class="promo">Lead since 01/2025</span></h3>
+          <div class="company">Vektör Teknoloji</div>
+          <ul>
+            <li>Promoted to Lead to head the core mobile engineering team for TikTak, driving technical roadmap execution while staying hands-on with critical Android features.</li>
+            <li>Championed code quality and architectural standards, introducing Clean Architecture and modularization to improve maintainability and team velocity.</li>
+            <li>Partnered with product, design and backend to prioritize UX enhancements and tech-debt reduction for high-concurrency mobility services.</li>
+            <li>Mentored developers, led code reviews and refined mobile best practices across the team.</li>
+          </ul>
+          <div class="chips"><span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">MVVM</span><span class="chip">Clean Architecture</span><span class="chip">Hilt</span><span class="chip">Flow</span></div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">12/2020 — 03/2023<span class="loc">Istanbul</span></div>
+        <div>
+          <h3>Senior Mobile Application Developer</h3>
+          <div class="company">OBSS Teknoloji</div>
+          <ul>
+            <li>Senior Android developer on Intouch, a multi-module community engagement app published for multiple clients on Google Play.</li>
+            <li>Delivered Jamaheer, the FIFA World Cup Qatar 2022 fan app, in collaboration with the Qatar Aspire Zone team.</li>
+          </ul>
+          <div class="chips"><span class="chip">Kotlin</span><span class="chip">MVVM</span><span class="chip">Clean Architecture</span><span class="chip">Hilt</span><span class="chip">LiveData</span></div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">12/2019 — 12/2020<span class="loc">Istanbul</span></div>
+        <div>
+          <h3>Mobile Application Developer</h3>
+          <div class="company">Ford Otosan</div>
+          <ul>
+            <li>Android developer on My Ford Trucks — vehicle info tracking and remote control for truck owners across Europe.</li>
+          </ul>
+          <div class="chips"><span class="chip">Kotlin</span><span class="chip">MVVM</span><span class="chip">Dagger</span><span class="chip">LiveData</span></div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">10/2018 — 11/2019<span class="loc">Istanbul</span></div>
+        <div>
+          <h3>Application Development Specialist</h3>
+          <div class="company">Turkcell Global Bilgi</div>
+          <ul>
+            <li>Java developer in Turkcell's IVR development team, integrating Turkcell customer API services.</li>
+          </ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">SOAP</span><span class="chip">REST APIs</span></div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">06/2017 — 09/2018<span class="loc">Istanbul</span></div>
+        <div>
+          <h3>Mobile Application Developer <span style="color:var(--text-3);font-weight:500;font-size:15px">· Long-term internship</span></h3>
+          <div class="company">Ford Otosan</div>
+          <ul>
+            <li>Android developer on a fleet-management app with route optimization and job listing, built with the Turkish postal service and tested with its fleets.</li>
+          </ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">Google Maps</span><span class="chip">3rd-party SDKs</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="sec-head"><span class="num mono">04</span><h2>Skills</h2><span class="rule"></span></div>
+    <div class="skills">
+      <div class="card">
+        <h4><svg><use href="#i-phone"/></svg>Mobile</h4>
+        <div class="chips">
+          <span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">Kotlin Multiplatform</span>
+          <span class="chip">Coroutines</span><span class="chip">Flow</span><span class="chip">LiveData</span>
+          <span class="chip">Flutter / Dart</span><span class="chip">BLoC / Cubit</span><span class="chip">Java</span><span class="chip">React Native (basics)</span>
+          <span class="chip">Bluetooth LE</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4><svg><use href="#i-layers"/></svg>Architecture &amp; Libraries</h4>
+        <div class="chips">
+          <span class="chip">Clean Architecture</span><span class="chip">MVVM</span><span class="chip">Modularization</span>
+          <span class="chip">Hilt</span><span class="chip">Koin</span><span class="chip">Dagger</span>
+          <span class="chip">Room</span><span class="chip">Realm</span><span class="chip">Retrofit</span><span class="chip">Ktor</span>
+          <span class="chip">Glide</span><span class="chip">View / Data Binding</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4><svg><use href="#i-tool"/></svg>Quality &amp; Tooling</h4>
+        <div class="chips">
+          <span class="chip">JUnit</span><span class="chip">Espresso</span><span class="chip">Mockito</span>
+          <span class="chip">Git</span><span class="chip">Jira</span><span class="chip">Postman</span>
+          <span class="chip">Fastlane</span><span class="chip">Bitrise</span><span class="chip">Firebase App Distribution</span>
+          <span class="chip">Claude</span><span class="chip">Cursor</span><span class="chip">Windsurf</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="sec-head"><span class="num mono">05</span><h2>Education &amp; Certifications</h2><span class="rule"></span></div>
+    <div class="two-col">
+      <div class="card">
+        <div class="edu-item">
+          <span class="yr mono">2026 — Present</span>
+          <h3>M.Sc. Engineering Management</h3>
+          <div class="sub">Galatasaray University</div>
+        </div>
+        <div class="edu-item">
+          <span class="yr mono">2013 — 2018</span>
+          <h3>B.Sc. Computer Engineering</h3>
+          <div class="sub">Istanbul Okan University</div>
+          <ul>
+            <li>Graduation project: location-based reminder Android app</li>
+            <li>Board member, Computer Science Community</li>
+          </ul>
+        </div>
+        <div class="langs">
+          <div class="lang">Turkish <span class="bar"><i style="width:100%"></i></span><small>Native</small></div>
+          <div class="lang">English <span class="bar"><i style="width:80%"></i></span><small>Professional</small></div>
+          <div class="lang">German <span class="bar"><i style="width:22%"></i></span><small>Beginner</small></div>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="cert-list">
+          <li><span>Compose Multiplatform</span><span class="src mono">Udemy · 2024</span></li>
+          <li><span>Flutter &amp; Dart — The Complete Guide</span><span class="src mono">Academind · 2020</span></li>
+          <li><span>Secure Software Development Training</span><span class="src mono">Innovera · 2020</span></li>
+          <li><span>Android Jetpack Masterclass in Kotlin</span><span class="src mono">Udemy · 2020</span></li>
+          <li><span>Modern Android Development — Kotlin, MVVM, Dagger 2, RxJava</span><span class="src mono">Udemy · 2019</span></li>
+          <li><span>Kotlin Programming</span><span class="src mono">Udemy · 2019</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact reveal" id="contact">
+    <h2>Let's build something great.</h2>
+    <p>Open to conversations about mobile engineering, technical leadership and interesting product challenges.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/alicagdascolak" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>Connect on LinkedIn</a>
+      <a class="btn" href="mailto:alicagdascolak@gmail.com"><svg><use href="#i-mail"/></svg>alicagdascolak@gmail.com</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>© <span id="yr">2026</span> Ali Çağdaş Çolak · Istanbul</span>
+    <div class="socials">
+      <a class="icon-btn" href="https://www.linkedin.com/in/alicagdascolak" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+      <a class="icon-btn" href="https://github.com/cacagdas" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="icon-btn" href="mailto:alicagdascolak@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored) root.setAttribute('data-theme', stored);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function sync() { btn.querySelector('use').setAttribute('href', isDark() ? '#i-sun' : '#i-moon'); }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      sync();
+    });
+    sync();
+
+    var nav = document.getElementById('nav');
+    addEventListener('scroll', function () { nav.classList.toggle('scrolled', scrollY > 8); }, { passive: true });
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    }
+  })();
+</script>
+</body>
+</html>
